@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Flush Casino — Premium Gaming Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --dark: #0A0A0F;
+    --dark2: #12121A;
+    --dark3: #1A1A28;
+    --dark4: #22223A;
+    --surface: #1E1E30;
+    --surface2: #252540;
+    --red: #E63946;
+    --green: #2D9F5A;
+    --text: #F0EDE8;
+    --muted: #9090A8;
+    --border: rgba(201,168,76,0.18);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top:0; z-index:100;
+    background: rgba(10,10,15,0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .logo span { color: var(--text); }
+  .nav-links { display:flex; gap:1.5rem; align-items:center; }
+  .nav-links a {
+    color: var(--muted); text-decoration:none;
+    font-size: 0.9rem; font-weight:500;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active { color: var(--gold); }
+  .btn-nav {
+    background: var(--gold);
+    color: var(--dark);
+    border: none; border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 0.85rem; font-weight:600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-nav:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 90vh;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+  }
+  .hero-bg {
+    position: absolute; inset:0;
+    background: radial-gradient(ellipse at 50% 40%, #1e1a40 0%, var(--dark) 70%);
+    z-index:0;
+  }
+  .hero-cards {
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px,
+      transparent 1px, transparent 40px
+    );
+    z-index:0;
+  }
+  .hero-content { position:relative; z-index:1; max-width:800px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 0.75rem; font-weight:600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+  .hero h1 em { color: var(--gold); font-style:normal; }
+  .hero p {
+    font-size: 1.1rem; color: var(--muted);
+    max-width: 540px; margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+  .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    border: none; border-radius: 8px;
+    padding: 14px 32px;
+    font-size: 1rem; font-weight:600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-size: 1rem; font-weight:600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+  .hero-stats {
+    display: flex; gap:3rem; justify-content:center;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+  }
+  .stat-item { text-align:center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight:700; color: var(--gold);
+    display:block;
+  }
+  .stat-lbl { font-size:0.8rem; color: var(--muted); text-transform:uppercase; letter-spacing:1px; }
+
+  /* SECTIONS */
+  section { padding: 80px 2rem; max-width: 1200px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight:700;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .section-title em { color: var(--gold); font-style:normal; }
+  .section-sub { color: var(--muted); margin-bottom: 3rem; font-weight:300; }
+
+  /* GAMES GRID */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .game-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .game-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .game-thumb {
+    height: 160px;
+    display: flex; align-items:center; justify-content:center;
+    font-size: 4rem;
+    position: relative;
+    overflow:hidden;
+  }
+  .game-thumb.slots { background: linear-gradient(135deg, #1a0a2e, #2d1060); }
+  .game-thumb.poker { background: linear-gradient(135deg, #0a1a0a, #0d3d1a); }
+  .game-thumb.roulette { background: linear-gradient(135deg, #1a0a0a, #3d0d0d); }
+  .game-thumb.blackjack { background: linear-gradient(135deg, #0a0a1a, #0d1040); }
+  .game-thumb.baccarat { background: linear-gradient(135deg, #1a1200, #3d2d00); }
+  .game-thumb.dice { background: linear-gradient(135deg, #001a1a, #003d3d); }
+  .game-info { padding: 1.2rem; }
+  .game-name { font-weight:600; font-size: 1rem; margin-bottom:4px; }
+  .game-rtp { font-size:0.78rem; color: var(--green); font-weight:500; }
+  .game-desc { font-size:0.82rem; color: var(--muted); margin-top:6px; }
+  .game-badge {
+    display: inline-block;
+    font-size:0.7rem; font-weight:600;
+    padding: 2px 8px; border-radius:4px;
+    margin-top: 8px;
+  }
+  .badge-hot { background: rgba(230,57,70,0.15); color: var(--red); border:1px solid rgba(230,57,70,0.3); }
+  .badge-new { background: rgba(45,159,90,0.15); color: var(--green); border:1px solid rgba(45,159,90,0.3); }
+
+  /* TABS */
+  .tabs { display:flex; gap:0.5rem; margin-bottom:2rem; flex-wrap:wrap; }
+  .tab-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight:500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--gold);
+    color: var(--dark);
+    border-color: var(--gold);
+    font-weight: 600;
+  }
+  .tab-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
+  /* CALCULATOR / BETTING */
+  .calc-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media(max-width:768px) { .calc-wrapper { grid-template-columns:1fr; } }
+  .calc-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+  .calc-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; margin-bottom:1.5rem;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+  }
+  .form-row { margin-bottom: 1.2rem; }
+  .form-label {
+    display:block;
+    font-size: 0.8rem; font-weight:500;
+    color: var(--muted);
+    margin-bottom: 6px;
+    text-transform: uppercase; letter-spacing:0.5px;
+  }
+  .form-input {
+    width:100%;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--gold); }
+  .form-select {
+    width:100%;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .result-box {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .result-row {
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
+  }
+  .result-row:last-child { border:none; }
+  .result-row .lbl { color: var(--muted); }
+  .result-row .val { font-weight:600; color: var(--gold); }
+  .result-row .val.pos { color: var(--green); }
+  .result-row .val.neg { color: var(--red); }
+  .calc-btn {
+    width:100%; margin-top:1rem;
+    background: var(--gold);
+    color: var(--dark);
+    border: none; border-radius: 8px;
+    padding: 12px;
+    font-size: 0.95rem; font-weight:700;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .calc-btn:hover { background: var(--gold-light); }
+  .calc-btn.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-weight:500;
+  }
+  .calc-btn.secondary:hover { border-color: var(--gold); color: var(--gold); background: transparent; }
+
+  /* HISTORY TABLE */
+  .history-table {
+    width:100%; border-collapse:collapse;
+    font-size:0.88rem;
+  }
+  .history-table th {
+    text-align:left; padding:10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted); font-weight:500;
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.5px;
+  }
+  .history-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .history-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .win-tag { color: var(--green); font-weight:600; }
+  .loss-tag { color: var(--red); font-weight:600; }
+  .pending-tag { color: var(--gold); font-weight:600; }
+
+  /* WALLET */
+  .wallet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .wallet-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem;
+  }
+  .wallet-card .w-lbl { font-size:0.75rem; color: var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+  .wallet-card .w-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight:700;
+    color: var(--gold);
+  }
+  .wallet-card .w-change { font-size:0.8rem; margin-top:4px; }
+
+  /* BONUS */
+  .bonus-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .bonus-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    position:relative; overflow:hidden;
+  }
+  .bonus-card::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:3px;
+  }
+  .bonus-card.gold::before { background: var(--gold); }
+  .bonus-card.red::before { background: var(--red); }
+  .bonus-card.green::before { background: var(--green); }
+  .bonus-icon { font-size:2.5rem; margin-bottom:1rem; }
+  .bonus-title { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; margin-bottom:6px; }
+  .bonus-desc { font-size:0.85rem; color:var(--muted); margin-bottom:1.2rem; line-height:1.5; }
+  .progress-bar { background:rgba(255,255,255,0.08); border-radius:99px; height:6px; margin-bottom:6px; }
+  .progress-fill { background: var(--gold); height:6px; border-radius:99px; transition: width 0.3s; }
+  .progress-lbl { font-size:0.75rem; color:var(--muted); display:flex; justify-content:space-between; }
+
+  /* REGISTER MODAL */
+  .modal-overlay {
+    position:fixed; inset:0;
+    background: rgba(0,0,0,0.8);
+    z-index:500;
+    display:none; align-items:center; justify-content:center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display:flex; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: 100%; max-width: 480px;
+    max-height: 90vh; overflow-y:auto;
+    position:relative;
+  }
+  .modal h2 { font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:0.4rem; color:var(--gold); }
+  .modal p.sub { color:var(--muted); margin-bottom:1.8rem; font-size:0.9rem; }
+  .modal-close {
+    position:absolute; top:1rem; right:1rem;
+    background:transparent; border:none; color:var(--muted);
+    font-size:1.4rem; cursor:pointer; line-height:1;
+  }
+  .modal-close:hover { color:var(--text); }
+  .check-row { display:flex; gap:10px; align-items:flex-start; margin-top:1rem; }
+  .check-row input[type=checkbox] { margin-top:2px; accent-color:var(--gold); }
+  .check-row label { font-size:0.83rem; color:var(--muted); }
+  .error-msg { color:var(--red); font-size:0.82rem; margin-top:4px; display:none; }
+  .success-msg { color:var(--green); font-size:0.82rem; margin-top:4px; display:none; }
+
+  /* NOTIFICATION */
+  .notif {
+    position:fixed; top:80px; right:20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    z-index:600; min-width:260px;
+    transform:translateX(120%);
+    transition: transform 0.3s;
+    font-size:0.9rem;
+  }
+  .notif.show { transform:translateX(0); }
+  .notif.success { border-left: 3px solid var(--green); }
+  .notif.error { border-left: 3px solid var(--red); }
+  .notif.info { border-left: 3px solid var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align:center;
+    color: var(--muted);
+    font-size:0.85rem;
+  }
+  footer .footer-logo { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--gold); margin-bottom:1rem; }
+  footer p { max-width:600px; margin:0 auto 1rem; line-height:1.6; }
+  footer .footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
+  footer .footer-links a { color:var(--muted); text-decoration:none; font-size:0.82rem; }
+  footer .footer-links a:hover { color:var(--gold); }
+  .age-badge {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:36px; height:36px; border-radius:50%;
+    border: 2px solid var(--muted);
+    font-weight:700; font-size:0.8rem; color:var(--muted);
+    margin-bottom:1rem;
+  }
+
+  /* SLIDER */
+  .odds-slider { width:100%; accent-color:var(--gold); cursor:pointer; }
+
+  /* LIVE TICKER */
+  .ticker-wrap {
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    height: 36px; line-height: 36px;
+  }
+  .ticker {
+    display:flex; gap:3rem;
+    animation: tickMove 30s linear infinite;
+    white-space:nowrap;
+    font-size:0.78rem; color:var(--muted);
+  }
+  .ticker span.win { color: var(--green); font-weight:600; }
+  .ticker span.lose { color: var(--red); font-weight:600; }
+  @keyframes tickMove { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+  /* SECTIONS visibility */
+  .section-content { display:none; }
+  .section-content.active { display:block; }
+
+  /* Responsive */
+  @media(max-width:600px) {
+    nav { padding: 0 1rem; }
+    section { padding: 60px 1rem; }
+    .hero-stats { gap:1.5rem; }
+  }
+
+  /* PARLAY BUILDER */
+  .parlay-item {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius:8px;
+    padding:10px 14px;
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:8px;
+  }
+  .parlay-item .remove-btn {
+    background:transparent; border:none; color:var(--red);
+    cursor:pointer; font-size:1.1rem; margin-left:auto;
+  }
+  .kelly-output {
+    background: var(--dark3);
+    border-left: 3px solid var(--gold);
+    border-radius:0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    margin-top:1rem;
+  }
+
+  /* CHART AREA */
+  .mini-chart {
+    width:100%; height:80px;
+    position:relative; overflow:hidden;
+  }
+  .mini-chart canvas { width:100% !important; height:80px !important; }
+
+  /* FORM VALIDATION STATES */
+  .form-input.invalid { border-color: var(--red); }
+  .form-input.valid { border-color: var(--green); }
+
+  /* SORT ARROWS */
+  .sort-arrow { cursor:pointer; user-select:none; }
+  .sort-arrow:after { content:' ↕'; opacity:0.4; font-size:0.8em; }
+  .sort-arrow.asc:after { content:' ↑'; opacity:1; }
+  .sort-arrow.desc:after { content:' ↓'; opacity:1; }
+</style>
+</head>
+<body>
+
+<!-- NOTIFICATION -->
+<div id="notif" class="notif"></div>
+
+<!-- MODAL REGISTER -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
+    <h2>Join Royal Flush</h2>
+    <p class="sub">Create your account and claim your welcome bonus</p>
+    <div class="form-row">
+      <label class="form-label">Full Name *</label>
+      <input class="form-input" id="reg-name" type="text" placeholder="John Smith">
+      <div class="error-msg" id="err-name">Name must be at least 3 characters</div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Email Address *</label>
+      <!-- BUG: email validation accepts invalid format -->
+      <input class="form-input" id="reg-email" type="text" placeholder="john@example.com">
+      <div class="error-msg" id="err-email">Please enter a valid email</div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Password *</label>
+      <!-- BUG: password field uses type="text" - visible passwords -->
+      <input class="form-input" id="reg-pass" type="text" placeholder="Min 8 characters">
+      <div class="error-msg" id="err-pass">Password must be at least 8 characters</div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Date of Birth *</label>
+      <!-- BUG: allows future dates; no age 18+ validation enforced -->
+      <input class="form-input" id="reg-dob" type="date">
+      <div class="error-msg" id="err-dob">You must be 18 or older</div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Country</label>
+      <select class="form-select" id="reg-country">
+        <option value="">Select country</option>
+        <option>United Kingdom</option>
+        <option>Germany</option>
+        <option>Canada</option>
+        <option>Australia</option>
+        <!-- BUG: no option selected by default but country is required -->
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Phone Number</label>
+      <!-- BUG: accepts alphabetical characters -->
+      <input class="form-input" id="reg-phone" type="text" placeholder="+44 7700 900000">
+    </div>
+    <div class="check-row">
+      <!-- BUG: T&C checkbox not actually validated on submit -->
+      <input type="checkbox" id="reg-tc">
+      <label for="reg-tc">I agree to the <a href="#" style="color:var(--gold)">Terms & Conditions</a> and confirm I am 18+</label>
+    </div>
+    <div class="check-row">
+      <input type="checkbox" id="reg-marketing" checked>
+      <label for="reg-marketing">Receive promotional emails (checked by default)</label>
+    </div>
+    <button class="calc-btn" style="margin-top:1.5rem" onclick="submitRegister()">Create Account</button>
+    <div class="success-msg" id="reg-success">Account created successfully! Check your email.</div>
+    <div style="text-align:center; margin-top:1rem; font-size:0.83rem; color:var(--muted)">
+      Already have an account? <a href="#" style="color:var(--gold)" onclick="openModal('loginModal'); closeModal('registerModal')">Sign in</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL LOGIN -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>Welcome Back</h2>
+    <p class="sub">Sign in to your Royal Flush account</p>
+    <div class="form-row">
+      <label class="form-label">Email</label>
+      <input class="form-input" id="login-email" type="email" placeholder="john@example.com">
+    </div>
+    <div class="form-row">
+      <label class="form-label">Password</label>
+      <!-- BUG: shows password as text -->
+      <input class="form-input" id="login-pass" type="text" placeholder="Your password">
+    </div>
+    <div style="text-align:right; margin:-0.5rem 0 1rem;">
+      <!-- BUG: forgot password link goes nowhere, no feedback -->
+      <a href="#" style="font-size:0.82rem; color:var(--gold)">Forgot Password?</a>
+    </div>
+    <!-- BUG: Remember Me doesn't actually persist session -->
+    <div class="check-row" style="margin-bottom:1rem">
+      <input type="checkbox" id="remember-me">
+      <label for="remember-me">Remember me for 30 days</label>
+    </div>
+    <button class="calc-btn" onclick="submitLogin()">Sign In</button>
+    <div style="text-align:center; margin-top:1rem; font-size:0.83rem; color:var(--muted)">
+      Don't have an account? <a href="#" style="color:var(--gold)" onclick="openModal('registerModal'); closeModal('loginModal')">Sign up</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Royal<span> Flush</span> ♠</a>
+  <div class="nav-links">
+    <!-- BUG: "Games" and "Casino" link to same section -->
+    <a onclick="showSection('games')" class="active" id="nav-games">Games</a>
+    <a onclick="showSection('games')" id="nav-casino">Casino</a>
+    <a onclick="showSection('calculator')" id="nav-calc">Calculator</a>
+    <a onclick="showSection('promotions')" id="nav-promo">Promotions</a>
+    <a onclick="showSection('wallet')" id="nav-wallet">Wallet</a>
+    <button class="btn-nav" onclick="openModal('loginModal')">Sign In</button>
+    <button class="btn-nav" style="background:transparent;color:var(--gold);border:1px solid var(--gold)" onclick="openModal('registerModal')">Join Now</button>
+  </div>
+</nav>
+
+<!-- LIVE TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    🎰 James W. won <span class="win">£4,200</span> on Mega Slots &nbsp;|&nbsp;
+    🃏 Sarah K. won <span class="win">£890</span> on Blackjack &nbsp;|&nbsp;
+    🎲 Mike T. lost <span class="lose">£340</span> on Roulette &nbsp;|&nbsp;
+    ♠ Emma R. won <span class="win">£12,500</span> on Poker &nbsp;|&nbsp;
+    🎰 David M. won <span class="win">£720</span> on Book of Ra &nbsp;|&nbsp;
+    🎲 Anna L. lost <span class="lose">£150</span> on Baccarat &nbsp;|&nbsp;
+    🎰 James W. won <span class="win">£4,200</span> on Mega Slots &nbsp;|&nbsp;
+    🃏 Sarah K. won <span class="win">£890</span> on Blackjack &nbsp;|&nbsp;
+    🎲 Mike T. lost <span class="lose">£340</span> on Roulette &nbsp;|&nbsp;
+    ♠ Emma R. won <span class="win">£12,500</span> on Poker
+  </div>
+</div>
+
+<!-- HERO -->
+<div id="hero-section">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-cards"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🏆 Licensed & Regulated Casino</div>
+      <h1>Play Smart.<br>Win <em>Big</em>.</h1>
+      <p>Experience the thrill of world-class casino games with the most advanced betting calculator in the industry.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="openModal('registerModal')">Start Playing Free</button>
+        <button class="btn-outline" onclick="showSection('calculator')">Try Calculator</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">500+</span><span class="stat-lbl">Games</span></div>
+        <div class="stat-item"><span class="stat-num">£2M+</span><span class="stat-lbl">Paid Out</span></div>
+        <div class="stat-item"><span class="stat-num">50K+</span><span class="stat-lbl">Players</span></div>
+        <!-- BUG: "98.5%" RTP displayed but calculator shows different numbers -->
+        <div class="stat-item"><span class="stat-num">98.5%</span><span class="stat-lbl">Max RTP</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAMES SECTION -->
+<div id="section-games" class="section-content active">
+  <section>
+    <div class="section-title">Our <em>Games</em></div>
+    <p class="section-sub">Choose from 500+ premium casino games</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="filterGames('all', this)">All Games</button>
+      <button class="tab-btn" onclick="filterGames('slots', this)">Slots</button>
+      <button class="tab-btn" onclick="filterGames('table', this)">Table Games</button>
+      <button class="tab-btn" onclick="filterGames('live', this)">Live Casino</button>
+      <!-- BUG: "Jackpot" tab exists but shows all games (no filter applied) -->
+      <button class="tab-btn" onclick="filterGames('all', this)">Jackpots</button>
+    </div>
+
+    <div class="games-grid" id="games-grid">
+      <div class="game-card" data-cat="slots" onclick="showNotif('🎰 Loading Mega Fortune Slots...', 'info')">
+        <div class="game-thumb slots">🎰</div>
+        <div class="game-info">
+          <div class="game-name">Mega Fortune Slots</div>
+          <!-- BUG: RTP shown as 97.4% here but hero says 98.5% max -->
+          <div class="game-rtp">RTP: 97.4%</div>
+          <div class="game-desc">Progressive jackpot slots with 5 reels</div>
+          <span class="game-badge badge-hot">🔥 Hot</span>
+        </div>
+      </div>
+      <div class="game-card" data-cat="table" onclick="showNotif('♠ Loading Texas Hold\'em Poker...', 'info')">
+        <div class="game-thumb poker">♠</div>
+        <div class="game-info">
+          <div class="game-name">Texas Hold'em Poker</div>
+          <div class="game-rtp">RTP: 99.5%</div>
+          <div class="game-desc">Classic poker with real-time multiplayer</div>
+          <span class="game-badge badge-hot">🔥 Hot</span>
+        </div>
+      </div>
+      <div class="game-card" data-cat="table" onclick="showNotif('🎡 Loading European Roulette...', 'info')">
+        <div class="game-thumb roulette">🎡</div>
+        <div class="game-info">
+          <div class="game-name">European Roulette</div>
+          <div class="game-rtp">RTP: 97.3%</div>
+          <div class="game-desc">Single zero European wheel, classic bets</div>
+          <span class="game-badge badge-new">✨ New</span>
+        </div>
+      </div>
+      <div class="game-card" data-cat="table" onclick="showNotif('🃏 Loading Blackjack Pro...', 'info')">
+        <div class="game-thumb blackjack">🃏</div>
+        <div class="game-info">
+          <div class="game-name">Blackjack Pro</div>
+          <div class="game-rtp">RTP: 99.6%</div>
+          <div class="game-desc">Multi-hand blackjack with side bets</div>
+        </div>
+      </div>
+      <div class="game-card" data-cat="live" onclick="showNotif('🎴 Loading Live Baccarat...', 'info')">
+        <div class="game-thumb baccarat">🎴</div>
+        <div class="game-info">
+          <div class="game-name">Live Baccarat</div>
+          <div class="game-rtp">RTP: 98.9%</div>
+          <div class="game-desc">Live dealer baccarat 24/7</div>
+          <span class="game-badge badge-new">🔴 Live</span>
+        </div>
+      </div>
+      <div class="game-card" data-cat="slots" onclick="showNotif('🎲 Loading Craps Royale...', 'info')">
+        <div class="game-thumb dice">🎲</div>
+        <div class="game-info">
+          <div class="game-name">Craps Royale</div>
+          <div class="game-rtp">RTP: 98.6%</div>
+          <div class="game-desc">Classic dice game with all bet types</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CALCULATOR SECTION -->
+<div id="section-calculator" class="section-content">
+  <section>
+    <div class="section-title">Betting <em>Calculator</em></div>
+    <p class="section-sub">Advanced tools to calculate odds, returns, and strategy</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchCalc('odds', this)">Odds Converter</button>
+      <button class="tab-btn" onclick="switchCalc('returns', this)">Returns Calculator</button>
+      <button class="tab-btn" onclick="switchCalc('kelly', this)">Kelly Criterion</button>
+      <button class="tab-btn" onclick="switchCalc('parlay', this)">Parlay Builder</button>
+      <button class="tab-btn" onclick="switchCalc('dutching', this)">Dutching</button>
+      <!-- BUG: "Hedge" tab shows same content as Dutching -->
+      <button class="tab-btn" onclick="switchCalc('dutching', this)">Hedge Betting</button>
+    </div>
+
+    <!-- ODDS CONVERTER -->
+    <div id="calc-odds" class="calc-wrapper">
+      <div class="calc-panel">
+        <h3>⟷ Odds Converter</h3>
+        <div class="form-row">
+          <label class="form-label">Decimal Odds</label>
+          <!-- BUG: decimal odds input doesn't clear when switching format -->
+          <input class="form-input" id="dec-odds" type="number" placeholder="e.g. 2.50" step="0.01" oninput="convertOdds('decimal')">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Fractional Odds</label>
+          <input class="form-input" id="frac-odds" type="text" placeholder="e.g. 3/2" oninput="convertOdds('fractional')">
+        </div>
+        <div class="form-row">
+          <label class="form-label">American / Moneyline Odds</label>
+          <input class="form-input" id="amer-odds" type="number" placeholder="e.g. +150 or -200" oninput="convertOdds('american')">
+        </div>
+        <div class="result-box">
+          <div class="result-row">
+            <span class="lbl">Implied Probability</span>
+            <span class="val" id="impl-prob">—</span>
+          </div>
+          <div class="result-row">
+            <span class="lbl">True Probability</span>
+            <!-- BUG: "True Probability" is same as Implied (vig not subtracted) -->
+            <span class="val" id="true-prob">—</span>
+          </div>
+          <div class="result-row">
+            <span class="lbl">Vig / Overround</span>
+            <!-- BUG: vig always shows 0% regardless of odds -->
+            <span class="val" id="vig-pct">0%</span>
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:1.2rem">
+          <label class="form-label">Probability → Odds</label>
+          <div style="display:flex; gap:8px; align-items:center">
+            <input class="form-input" id="prob-input" type="number" placeholder="Probability %" min="0" max="100" step="0.1" style="flex:1">
+            <button class="calc-btn" style="width:auto; padding:10px 16px; margin-top:0" onclick="probToOdds()">Convert</button>
+          </div>
+        </div>
+        <div class="result-box">
+          <div class="result-row"><span class="lbl">Decimal</span><span class="val" id="p2d">—</span></div>
+          <div class="result-row"><span class="lbl">Fractional</span><span class="val" id="p2f">—</span></div>
+          <div class="result-row"><span class="lbl">American</span><span class="val" id="p2a">—</span></div>
+        </div>
+      </div>
+
+      <div class="calc-panel">
+        <h3>💰 Quick Bet Return</h3>
+        <div class="form-row">
+          <label class="form-label">Stake (£)</label>
+          <input class="form-input" id="qb-stake" type="number" placeholder="10.00" step="0.01" min="0" value="10">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Odds Format</label>
+          <select class="form-select" id="qb-format" onchange="updateQBFormat()">
+            <option value="decimal">Decimal</option>
+            <option value="fractional">Fractional</option>
+            <option value="american">American</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label">Odds Value</label>
+          <input class="form-input" id="qb-odds" type="text" placeholder="2.50" value="2.50">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Bet Type</label>
+          <select class="form-select" id="qb-type">
+            <option value="win">Win</option>
+            <option value="ew">Each Way (1/5 odds, 3 places)</option>
+            <!-- BUG: "Each Way" calculation is incorrect - uses wrong place fraction -->
+          </select>
+        </div>
+        <button class="calc-btn" onclick="calcQuickBet()">Calculate Return</button>
+        <div class="result-box">
+          <div class="result-row"><span class="lbl">Profit</span><span class="val pos" id="qb-profit">—</span></div>
+          <div class="result-row"><span class="lbl">Total Return</span><span class="val" id="qb-return">—</span></div>
+          <!-- BUG: "Net Return" shows same as Total Return (stake not subtracted correctly) -->
+          <div class="result-row"><span class="lbl">Net Return</span><span class="val pos" id="qb-net">—</span></div>
+          <div class="result-row"><span class="lbl">ROI %</span><span class="val" id="qb-roi">—</span></div>
+        </div>
+        <button class="calc-btn secondary" onclick="resetQB()">Reset</button>
+      </div>
+    </div>
+
+    <!-- RETURNS CALCULATOR -->
+    <div id="calc-returns" class="calc-wrapper" style="display:none">
+      <div class="calc-panel">
+        <h3>📊 Multi-Bet Returns</h3>
+        <div class="form-row">
+          <label class="form-label">Bet Type</label>
+          <select class="form-select" id="mb-type" onchange="updateMultiBetInfo()">
+            <option value="single">Single</option>
+            <!-- BUG: Double calculation uses single odds formula -->
+            <option value="double">Double</option>
+            <option value="treble">Treble</option>
+            <option value="trixie">Trixie (3 selections)</option>
+            <option value="yankee">Yankee (4 selections)</option>
+            <option value="lucky15">Lucky 15</option>
+            <option value="lucky31">Lucky 31</option>
+            <option value="lucky63">Lucky 63</option>
+          </select>
+        </div>
+        <div id="mb-info" style="background:rgba(201,168,76,0.06); border:1px solid var(--border); border-radius:8px; padding:10px 14px; font-size:0.82rem; color:var(--muted); margin-bottom:1rem;">
+          Single bet: 1 selection, 1 bet
+        </div>
+        <div id="mb-selections">
+          <div class="form-row" style="display:flex; gap:8px">
+            <div style="flex:1">
+              <label class="form-label">Selection 1 Odds</label>
+              <input class="form-input" type="number" placeholder="2.50" step="0.01" value="2.50" id="s1-odds">
+            </div>
+            <div style="flex:1">
+              <label class="form-label">Stake (£)</label>
+              <input class="form-input" type="number" placeholder="10" step="0.01" value="10" id="s1-stake">
+            </div>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcMultiBet()">Calculate</button>
+        <div class="result-box" id="mb-result" style="display:none">
+          <div class="result-row"><span class="lbl">Total Stake</span><span class="val" id="mb-total-stake">—</span></div>
+          <div class="result-row"><span class="lbl">Total Return</span><span class="val pos" id="mb-total-return">—</span></div>
+          <div class="result-row"><span class="lbl">Total Profit</span><span class="val pos" id="mb-total-profit">—</span></div>
+          <!-- BUG: "Break-even %" calculated incorrectly (shows 0 always for treble+) -->
+          <div class="result-row"><span class="lbl">Break-even Win %</span><span class="val" id="mb-breakeven">—</span></div>
+        </div>
+      </div>
+      <div class="calc-panel">
+        <h3>📈 Bet History Tracker</h3>
+        <div class="form-row" style="display:flex; gap:8px">
+          <div style="flex:1"><label class="form-label">Event</label><input class="form-input" id="hist-event" type="text" placeholder="Man Utd vs Arsenal"></div>
+          <div style="width:100px"><label class="form-label">Odds</label><input class="form-input" id="hist-odds" type="number" step="0.01" placeholder="2.50"></div>
+        </div>
+        <div class="form-row" style="display:flex; gap:8px">
+          <div style="flex:1"><label class="form-label">Stake (£)</label><input class="form-input" id="hist-stake" type="number" placeholder="10"></div>
+          <div style="flex:1">
+            <label class="form-label">Result</label>
+            <select class="form-select" id="hist-result">
+              <option value="win">Win</option>
+              <option value="loss">Loss</option>
+              <option value="pending">Pending</option>
+            </select>
+          </div>
+        </div>
+        <!-- BUG: "Add Bet" doesn't persist between page navigation -->
+        <button class="calc-btn" onclick="addBetHistory()">Add Bet</button>
+        <div style="margin-top:1rem; overflow-x:auto">
+          <table class="history-table" id="bet-history-table">
+            <thead>
+              <tr>
+                <th class="sort-arrow" onclick="sortHistory('event')">Event</th>
+                <th class="sort-arrow" onclick="sortHistory('odds')">Odds</th>
+                <th class="sort-arrow" onclick="sortHistory('stake')">Stake</th>
+                <th class="sort-arrow" onclick="sortHistory('return')">Return</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="history-tbody">
+              <tr><td colspan="5" style="text-align:center; color:var(--muted); padding:2rem 0">No bets added yet</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="result-box" style="margin-top:1rem">
+          <!-- BUG: P&L shows NaN when no bets added -->
+          <div class="result-row"><span class="lbl">Total P&L</span><span class="val" id="hist-pnl">£NaN</span></div>
+          <div class="result-row"><span class="lbl">Win Rate</span><span class="val" id="hist-winrate">0%</span></div>
+          <!-- BUG: ROI doesn't update when bets are added -->
+          <div class="result-row"><span class="lbl">Overall ROI</span><span class="val" id="hist-roi">0%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KELLY CRITERION -->
+    <div id="calc-kelly" class="calc-wrapper" style="display:none">
+      <div class="calc-panel">
+        <h3>📐 Kelly Criterion</h3>
+        <p style="font-size:0.83rem; color:var(--muted); margin-bottom:1.5rem">Optimal bet sizing based on edge and bankroll</p>
+        <div class="form-row">
+          <label class="form-label">Your Bankroll (£)</label>
+          <input class="form-input" id="kel-bankroll" type="number" placeholder="1000" value="1000">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Decimal Odds</label>
+          <input class="form-input" id="kel-odds" type="number" placeholder="2.50" step="0.01" value="2.50">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Your Estimated Win Probability (%)</label>
+          <input class="form-input" id="kel-prob" type="number" placeholder="55" step="0.1" value="55">
+          <div style="display:flex; align-items:center; gap:12px; margin-top:8px">
+            <input type="range" class="odds-slider" id="kel-prob-slider" min="1" max="99" step="1" value="55" oninput="document.getElementById('kel-prob').value=this.value; calcKelly()">
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">Kelly Fraction</label>
+          <select class="form-select" id="kel-fraction">
+            <option value="1">Full Kelly (aggressive)</option>
+            <option value="0.5" selected>Half Kelly (moderate)</option>
+            <option value="0.25">Quarter Kelly (conservative)</option>
+            <!-- BUG: custom fraction input missing despite label suggesting it -->
+          </select>
+        </div>
+        <button class="calc-btn" onclick="calcKelly()">Calculate Kelly Bet</button>
+        <div class="kelly-output" id="kelly-result" style="display:none">
+          <div class="result-row"><span class="lbl">Kelly %</span><span class="val" id="kelly-pct">—</span></div>
+          <div class="result-row"><span class="lbl">Recommended Bet</span><span class="val pos" id="kelly-bet">—</span></div>
+          <!-- BUG: Expected Value calculation is wrong (uses wrong formula) -->
+          <div class="result-row"><span class="lbl">Expected Value</span><span class="val" id="kelly-ev">—</span></div>
+          <div class="result-row"><span class="lbl">Edge</span><span class="val" id="kelly-edge">—</span></div>
+          <div class="result-row"><span class="lbl">Break-even Prob</span><span class="val" id="kelly-breakeven">—</span></div>
+        </div>
+      </div>
+      <div class="calc-panel">
+        <h3>📉 Risk of Ruin</h3>
+        <p style="font-size:0.83rem; color:var(--muted); margin-bottom:1.5rem">Calculate your probability of going broke</p>
+        <div class="form-row">
+          <label class="form-label">Bankroll Units</label>
+          <input class="form-input" id="ror-bankroll" type="number" placeholder="100" value="100">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Bet Size (units)</label>
+          <input class="form-input" id="ror-bet" type="number" placeholder="2" value="2">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Win Probability (%)</label>
+          <input class="form-input" id="ror-prob" type="number" placeholder="50" value="50">
+        </div>
+        <!-- BUG: RoR button shows "0%" for all inputs regardless of values -->
+        <button class="calc-btn" onclick="calcRoR()">Calculate Risk of Ruin</button>
+        <div class="result-box" id="ror-result" style="display:none">
+          <div class="result-row"><span class="lbl">Risk of Ruin</span><span class="val neg" id="ror-pct">—</span></div>
+          <div class="result-row"><span class="lbl">Expected Lifetime (bets)</span><span class="val" id="ror-lifetime">—</span></div>
+          <div class="result-row"><span class="lbl">Optimal Bet Size</span><span class="val pos" id="ror-optimal">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARLAY BUILDER -->
+    <div id="calc-parlay" style="display:none">
+      <div class="calc-wrapper">
+        <div class="calc-panel">
+          <h3>🔗 Parlay Builder</h3>
+          <div class="form-row" style="display:flex; gap:8px">
+            <div style="flex:2">
+              <label class="form-label">Selection Name</label>
+              <input class="form-input" id="par-name" type="text" placeholder="e.g. Arsenal to Win">
+            </div>
+            <div style="flex:1">
+              <label class="form-label">Odds (Dec)</label>
+              <input class="form-input" id="par-odds" type="number" step="0.01" placeholder="2.50">
+            </div>
+          </div>
+          <!-- BUG: Adding same selection twice is allowed -->
+          <button class="calc-btn" onclick="addParlay()">+ Add Selection</button>
+          <div id="parlay-list" style="margin-top:1.2rem"></div>
+          <div class="form-row" style="margin-top:1rem">
+            <label class="form-label">Total Stake (£)</label>
+            <input class="form-input" id="par-stake" type="number" placeholder="10" value="10">
+          </div>
+          <button class="calc-btn" onclick="calcParlay()">Calculate Parlay</button>
+          <!-- BUG: Clear All removes selections but combined odds don't reset to 1.00 -->
+          <button class="calc-btn secondary" style="margin-top:8px" onclick="clearParlay()">Clear All</button>
+          <div class="result-box" id="par-result" style="display:none">
+            <div class="result-row"><span class="lbl">Legs</span><span class="val" id="par-legs">—</span></div>
+            <div class="result-row"><span class="lbl">Combined Odds</span><span class="val" id="par-combo">—</span></div>
+            <div class="result-row"><span class="lbl">Potential Return</span><span class="val pos" id="par-return">—</span></div>
+            <div class="result-row"><span class="lbl">Potential Profit</span><span class="val pos" id="par-profit">—</span></div>
+            <!-- BUG: "Implied Probability" shown but is actually combined odds divided by 100 (wrong formula) -->
+            <div class="result-row"><span class="lbl">Implied Probability</span><span class="val" id="par-impl">—</span></div>
+          </div>
+        </div>
+        <div class="calc-panel">
+          <h3>📊 Parlay vs Singles Comparison</h3>
+          <p style="font-size:0.83rem; color:var(--muted); margin-bottom:1rem">Compare parlay payout vs betting each selection individually</p>
+          <div class="result-box" id="par-compare" style="min-height:100px">
+            <p style="color:var(--muted); text-align:center; padding:1rem 0; font-size:0.85rem">Add selections and calculate parlay to see comparison</p>
+          </div>
+          <div style="margin-top:1.5rem">
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--gold); margin-bottom:1rem">🔄 Arbitrage Finder</h3>
+            <p style="font-size:0.83rem; color:var(--muted); margin-bottom:1rem">Find arbitrage opportunities across two bookmakers</p>
+            <div style="display:flex; gap:8px; margin-bottom:0.8rem">
+              <div style="flex:1"><label class="form-label">Bookie 1 Odds</label><input class="form-input" id="arb1" type="number" step="0.01" placeholder="2.10"></div>
+              <div style="flex:1"><label class="form-label">Bookie 2 Odds</label><input class="form-input" id="arb2" type="number" step="0.01" placeholder="2.05"></div>
+            </div>
+            <div class="form-row">
+              <label class="form-label">Total Stake (£)</label>
+              <input class="form-input" id="arb-stake" type="number" placeholder="100" value="100">
+            </div>
+            <!-- BUG: Arbitrage calculation always shows "opportunity found" even when no arb exists -->
+            <button class="calc-btn" onclick="calcArb()">Find Arbitrage</button>
+            <div class="result-box" id="arb-result" style="display:none">
+              <div class="result-row"><span class="lbl">Bookie 1 Stake</span><span class="val" id="arb-s1">—</span></div>
+              <div class="result-row"><span class="lbl">Bookie 2 Stake</span><span class="val" id="arb-s2">—</span></div>
+              <div class="result-row"><span class="lbl">Guaranteed Profit</span><span class="val pos" id="arb-profit">—</span></div>
+              <div class="result-row"><span class="lbl">Arb %</span><span class="val" id="arb-pct">—</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUTCHING -->
+    <div id="calc-dutching" style="display:none">
+      <div class="calc-wrapper">
+        <div class="calc-panel">
+          <h3>🎯 Dutching Calculator</h3>
+          <p style="font-size:0.83rem; color:var(--muted); margin-bottom:1.2rem">Split your stake across multiple selections to guarantee same profit regardless of which wins</p>
+          <div class="form-row">
+            <label class="form-label">Total Budget (£)</label>
+            <input class="form-input" id="dut-budget" type="number" placeholder="100" value="100">
+          </div>
+          <div id="dut-selections">
+            <div class="form-row" style="display:flex; gap:8px">
+              <div style="flex:2"><label class="form-label">Selection</label><input class="form-input" type="text" value="Selection 1" id="ds1-name"></div>
+              <div style="flex:1"><label class="form-label">Odds</label><input class="form-input" type="number" step="0.01" value="3.00" id="ds1-odds"></div>
+            </div>
+            <div class="form-row" style="display:flex; gap:8px">
+              <div style="flex:2"><label class="form-label">Selection</label><input class="form-input" type="text" value="Selection 2" id="ds2-name"></div>
+              <div style="flex:1"><label class="form-label">Odds</label><input class="form-input" type="number" step="0.01" value="4.50" id="ds2-odds"></div>
+            </div>
+            <div class="form-row" style="display:flex; gap:8px">
+              <div style="flex:2"><label class="form-label">Selection</label><input class="form-input" type="text" value="Selection 3" id="ds3-name"></div>
+              <div style="flex:1"><label class="form-label">Odds</label><input class="form-input" type="number" step="0.01" value="6.00" id="ds3-odds"></div>
+            </div>
+          </div>
+          <!-- BUG: Dutching button ignores empty/zero odds and still calculates -->
+          <button class="calc-btn" onclick="calcDutching()">Calculate Stakes</button>
+          <div class="result-box" id="dut-result" style="display:none">
+            <div class="result-row"><span class="lbl">Selection 1 Stake</span><span class="val" id="ds1-stake">—</span></div>
+            <div class="result-row"><span class="lbl">Selection 2 Stake</span><span class="val" id="ds2-stake">—</span></div>
+            <div class="result-row"><span class="lbl">Selection 3 Stake</span><span class="val" id="ds3-stake">—</span></div>
+            <div class="result-row"><span class="lbl">Guaranteed Return</span><span class="val pos" id="dut-return">—</span></div>
+            <!-- BUG: Guaranteed Profit shows same as Guaranteed Return -->
+            <div class="result-row"><span class="lbl">Guaranteed Profit</span><span class="val pos" id="dut-profit">—</span></div>
+          </div>
+        </div>
+        <div class="calc-panel">
+          <h3>🎲 Expected Value Calculator</h3>
+          <p style="font-size:0.83rem; color:var(--muted); margin-bottom:1.2rem">Calculate the expected value of any bet over many trials</p>
+          <div class="form-row">
+            <label class="form-label">Decimal Odds</label>
+            <input class="form-input" id="ev-odds" type="number" step="0.01" placeholder="2.50" value="2.50">
+          </div>
+          <div class="form-row">
+            <label class="form-label">Win Probability (%)</label>
+            <input class="form-input" id="ev-prob" type="number" step="0.1" placeholder="45" value="45">
+          </div>
+          <div class="form-row">
+            <label class="form-label">Stake per Bet (£)</label>
+            <input class="form-input" id="ev-stake" type="number" step="0.01" placeholder="10" value="10">
+          </div>
+          <div class="form-row">
+            <label class="form-label">Number of Bets</label>
+            <!-- BUG: "Number of Bets" accepts negative values -->
+            <input class="form-input" id="ev-bets" type="number" placeholder="100" value="100">
+          </div>
+          <button class="calc-btn" onclick="calcEV()">Calculate EV</button>
+          <div class="result-box" id="ev-result" style="display:none">
+            <!-- BUG: EV per bet ignores the stake in computation -->
+            <div class="result-row"><span class="lbl">EV per Bet</span><span class="val" id="ev-per-bet">—</span></div>
+            <div class="result-row"><span class="lbl">Total Expected Profit</span><span class="val" id="ev-total">—</span></div>
+            <div class="result-row"><span class="lbl">Standard Deviation</span><span class="val" id="ev-sd">—</span></div>
+            <!-- BUG: "95% Confidence Interval" always shows same value as Total Expected Profit -->
+            <div class="result-row"><span class="lbl">95% Confidence Range</span><span class="val" id="ev-ci">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- PROMOTIONS -->
+<div id="section-promotions" class="section-content">
+  <section>
+    <div class="section-title"><em>Promotions</em> & Bonuses</div>
+    <p class="section-sub">Exclusive offers for new and existing players</p>
+    <div class="bonus-cards">
+      <div class="bonus-card gold">
+        <div class="bonus-icon">🎁</div>
+        <div class="bonus-title">Welcome Bonus</div>
+        <!-- BUG: "100% up to £500" but T&C link says 50% -->
+        <div class="bonus-desc">100% match on your first deposit up to £500. 30x wagering requirement applies. Min deposit £20.</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+        <div class="progress-lbl"><span>£0 wagered</span><span>£0 / £500 bonus</span></div>
+        <!-- BUG: "Claim Now" button fires twice on fast click -->
+        <button class="calc-btn" style="margin-top:1rem" ondblclick="showNotif('Bonus claimed twice!', 'error')" onclick="showNotif('Welcome bonus claimed! Check your account.', 'success')">Claim Now</button>
+      </div>
+      <div class="bonus-card red">
+        <div class="bonus-icon">🔄</div>
+        <div class="bonus-title">Reload Bonus</div>
+        <!-- BUG: "Every Friday" text but expiry timer shows Tuesday -->
+        <div class="bonus-desc">Every Friday: 50% reload bonus up to £200. Available to all verified players. Expires Tuesday midnight.</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:35%; background:var(--red)"></div></div>
+        <div class="progress-lbl"><span>£350 wagered</span><span>35% complete</span></div>
+        <button class="calc-btn" style="margin-top:1rem; background:var(--red); color:#fff" onclick="showNotif('Reload bonus applied!', 'success')">Activate</button>
+      </div>
+      <div class="bonus-card green">
+        <div class="bonus-icon">🔃</div>
+        <div class="bonus-title">Free Spins</div>
+        <div class="bonus-desc">50 free spins on Mega Fortune Slots every Monday for depositing players.</div>
+        <!-- BUG: Countdown timer counts up instead of down -->
+        <div style="margin-bottom:1rem">
+          <div style="font-size:0.75rem; color:var(--muted); margin-bottom:4px">Next reward in:</div>
+          <div id="countdown" style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--green)">00:00:00</div>
+        </div>
+        <button class="calc-btn" style="margin-top:0; background:var(--green); color:#fff" onclick="showNotif('50 Free Spins added to your account!', 'success')">Get Spins</button>
+      </div>
+    </div>
+
+    <!-- BUG: VIP table shows wrong tier percentages and misaligned columns -->
+    <div style="margin-top:3rem">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:1.5rem">VIP <em style="color:var(--gold)">Loyalty</em> Program</h3>
+      <div style="overflow-x:auto">
+        <table class="history-table" style="min-width:600px">
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Points Required</th>
+              <th>Cashback</th>
+              <th>Withdrawal Limit</th>
+              <!-- BUG: "Bonus %" column header missing but data exists -->
+              <th></th>
+              <th>Perks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>🥉 Bronze</td><td>0 – 999</td><td>3%</td><td>£2,000/wk</td><td style="color:var(--gold)">5%</td><td>Basic support</td></tr>
+            <!-- BUG: Silver and Gold have same cashback % (5%) -->
+            <tr><td>🥈 Silver</td><td>1,000 – 4,999</td><td>5%</td><td>£5,000/wk</td><td style="color:var(--gold)">10%</td><td>Priority support, monthly bonus</td></tr>
+            <tr><td>🥇 Gold</td><td>5,000 – 19,999</td><td>5%</td><td>£10,000/wk</td><td style="color:var(--gold)">15%</td><td>Dedicated manager, weekly cashback</td></tr>
+            <tr><td>💎 Platinum</td><td>20,000+</td><td>10%</td><td>Unlimited</td><td style="color:var(--gold)">25%</td><td>VIP events, personal manager, bespoke offers</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- WALLET -->
+<div id="section-wallet" class="section-content">
+  <section>
+    <div class="section-title">My <em>Wallet</em></div>
+    <p class="section-sub">Manage your funds and transactions</p>
+
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="w-lbl">Available Balance</div>
+        <!-- BUG: Balance shows negative after deposit (wrong sign) -->
+        <div class="w-val" id="wallet-balance">£1,250.00</div>
+        <div class="w-change" style="color:var(--green)">↑ +£50 today</div>
+      </div>
+      <div class="wallet-card">
+        <div class="w-lbl">Bonus Balance</div>
+        <div class="w-val" style="color:var(--green)">£500.00</div>
+        <div class="w-change" style="color:var(--muted)">30x wagering required</div>
+      </div>
+      <div class="wallet-card">
+        <div class="w-lbl">Pending Withdrawal</div>
+        <div class="w-val" style="color:var(--red)">£0.00</div>
+        <div class="w-change" style="color:var(--muted)">No pending requests</div>
+      </div>
+      <div class="wallet-card">
+        <div class="w-lbl">Lifetime Winnings</div>
+        <div class="w-val">£4,821.50</div>
+        <div class="w-change" style="color:var(--muted)">Since joining</div>
+      </div>
+    </div>
+
+    <div class="calc-wrapper">
+      <div class="calc-panel">
+        <h3>💳 Deposit Funds</h3>
+        <div class="form-row">
+          <label class="form-label">Payment Method</label>
+          <select class="form-select" id="dep-method">
+            <option>Visa / Mastercard</option>
+            <option>PayPal</option>
+            <option>Bank Transfer</option>
+            <option>Crypto (BTC, ETH)</option>
+            <!-- BUG: "Apple Pay" option shown but doesn't work on click -->
+            <option>Apple Pay</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label">Amount (£)</label>
+          <!-- BUG: Min deposit £10 stated but £0 is accepted -->
+          <input class="form-input" id="dep-amount" type="number" placeholder="Minimum £10" step="0.01" min="0">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Card Number</label>
+          <!-- BUG: No masking or formatting for card number -->
+          <input class="form-input" id="dep-card" type="text" placeholder="1234 5678 9012 3456" maxlength="16">
+        </div>
+        <div style="display:flex; gap:8px">
+          <div class="form-row" style="flex:1; margin:0">
+            <label class="form-label">Expiry</label>
+            <input class="form-input" type="text" placeholder="MM/YY" maxlength="5">
+          </div>
+          <div class="form-row" style="flex:1; margin:0">
+            <label class="form-label">CVV</label>
+            <!-- BUG: CVV shown as plain text, not masked -->
+            <input class="form-input" type="text" placeholder="123" maxlength="3">
+          </div>
+        </div>
+        <!-- BUG: Deposit button updates balance with negative value (-amount) -->
+        <button class="calc-btn" style="margin-top:1.2rem" onclick="processDeposit()">Deposit Now</button>
+        <p style="font-size:0.75rem; color:var(--muted); margin-top:8px; text-align:center">Secured by 256-bit SSL encryption</p>
+      </div>
+
+      <div class="calc-panel">
+        <h3>🏦 Withdraw Funds</h3>
+        <div class="form-row">
+          <label class="form-label">Withdrawal Method</label>
+          <select class="form-select">
+            <option>Bank Transfer (3–5 days)</option>
+            <option>PayPal (24 hours)</option>
+            <option>Crypto (1 hour)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label">Amount (£)</label>
+          <!-- BUG: Can withdraw more than available balance -->
+          <input class="form-input" id="wdl-amount" type="number" placeholder="Min £20" step="0.01">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Account / IBAN</label>
+          <input class="form-input" type="text" placeholder="GB29NWBK60161331926819">
+        </div>
+        <div class="form-row">
+          <label class="form-label">2FA Code</label>
+          <!-- BUG: 2FA field accepts any code including blank -->
+          <input class="form-input" type="text" placeholder="6-digit code">
+        </div>
+        <button class="calc-btn" onclick="processWithdrawal()">Request Withdrawal</button>
+
+        <div style="margin-top:1.5rem">
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--gold); margin-bottom:1rem; border-bottom:1px solid var(--border); padding-bottom:0.6rem">Transaction History</h3>
+          <table class="history-table" style="width:100%">
+            <thead>
+              <tr><th>Date</th><th>Type</th><th>Amount</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <!-- BUG: Dates shown in wrong format (DD/MM vs MM/DD inconsistency) -->
+              <tr><td>05/11/2026</td><td>Deposit</td><td style="color:var(--green)">+£200.00</td><td><span class="win-tag">Complete</span></td></tr>
+              <tr><td>11/05/2026</td><td>Bet Win</td><td style="color:var(--green)">+£85.00</td><td><span class="win-tag">Complete</span></td></tr>
+              <tr><td>04/11/2026</td><td>Withdrawal</td><td style="color:var(--red)">-£150.00</td><td><span class="pending-tag">Pending</span></td></tr>
+              <tr><td>03/11/2026</td><td>Bet Loss</td><td style="color:var(--red)">-£20.00</td><td><span class="loss-tag">Settled</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="age-badge">18+</div>
+  <div class="footer-logo">Royal Flush ♠</div>
+  <p>Royal Flush Casino is operated under licence. Gambling can be addictive — please gamble responsibly. This site is intended for users aged 18 and over only. If you need help, contact <strong>BeGambleAware.org</strong> or call <strong>0808 8020 133</strong>.</p>
+  <!-- BUG: Copyright year is hardcoded as 2024 (wrong year) -->
+  <p style="font-size:0.75rem; opacity:0.5">© 2024 Royal Flush Casino. All rights reserved. Licence No. RF-UK-2024-00192</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Responsible Gambling</a>
+    <a href="#">Cookie Policy</a>
+    <!-- BUG: "Contact Us" link opens register modal instead of a contact page -->
+    <a href="#" onclick="openModal('registerModal')">Contact Us</a>
+    <a href="#">Sitemap</a>
+  </div>
+</footer>
+
+<script>
+// ============================================
+// STATE
+// ============================================
+let betHistory = [];
+let parlaySelections = [];
+let countSeconds = 0;
+
+// ============================================
+// NAVIGATION
+// ============================================
+function showSection(name) {
+  document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+  document.getElementById('hero-section').style.display = 'none';
+  const sec = document.getElementById('section-' + name);
+  if (sec) sec.classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + (name === 'calculator' ? 'calc' : name === 'promotions' ? 'promo' : name));
+  if (navEl) navEl.classList.add('active');
+  // BUG: Scrolls to top but loses scroll position (no scroll restoration)
+  window.scrollTo(0, 0);
+}
+
+// ============================================
+// MODALS
+// ============================================
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+// BUG: Clicking outside modal doesn't close it
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', function(e) {
+    // intentionally disabled: if (e.target === this) this.classList.remove('open');
+  });
+});
+
+// ============================================
+// NOTIFICATIONS
+// ============================================
+function showNotif(msg, type='info') {
+  const n = document.getElementById('notif');
+  n.textContent = msg;
+  n.className = 'notif ' + type + ' show';
+  // BUG: Multiple rapid notifications stack/overlap (no queue)
+  setTimeout(() => n.classList.remove('show'), 3000);
+}
+
+// ============================================
+// GAME FILTER
+// BUG: "live" category filter is wrong (craps has data-cat=slots)
+// ============================================
+function filterGames(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.game-card').forEach(card => {
+    // BUG: filter comparison is case sensitive but data-cat is lowercase
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// ============================================
+// CALCULATOR TABS
+// ============================================
+const calcPanels = { odds:'calc-odds', returns:'calc-returns', kelly:'calc-kelly', parlay:'calc-parlay', dutching:'calc-dutching' };
+function switchCalc(name, btn) {
+  document.querySelectorAll('#section-calculator .tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  Object.values(calcPanels).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+  const target = calcPanels[name];
+  if (target) document.getElementById(target).style.display = name === 'parlay' || name === 'dutching' ? 'block' : 'grid';
+}
+
+// ============================================
+// ODDS CONVERTER
+// BUG: Fractional to Decimal uses floor division (loses precision)
+// BUG: American odds negative conversion formula is wrong
+// ============================================
+function convertOdds(from) {
+  let dec = 0;
+  if (from === 'decimal') {
+    dec = parseFloat(document.getElementById('dec-odds').value) || 0;
+    if (dec <= 1) return;
+    // Fractional: BUG uses Math.floor
+    const n = Math.floor((dec - 1) * 4);
+    document.getElementById('frac-odds').value = n + '/4';
+    // American: BUG formula is wrong for negative
+    const amer = dec >= 2 ? '+' + Math.round((dec - 1) * 100) : '-' + Math.round(100 / (dec - 1));
+    document.getElementById('amer-odds').value = amer;
+  } else if (from === 'fractional') {
+    const frac = document.getElementById('frac-odds').value.trim();
+    const parts = frac.split('/');
+    if (parts.length !== 2) return;
+    // BUG: Division result not validated for NaN
+    dec = parseInt(parts[0]) / parseInt(parts[1]) + 1;
+    document.getElementById('dec-odds').value = dec.toFixed(2);
+    const amer = dec >= 2 ? '+' + Math.round((dec - 1) * 100) : '-' + Math.round(100 / (dec - 1));
+    document.getElementById('amer-odds').value = amer;
+  } else if (from === 'american') {
+    const a = parseFloat(document.getElementById('amer-odds').value) || 0;
+    // BUG: uses wrong formula for positive american odds
+    dec = a > 0 ? (a / 100) : (100 / Math.abs(a) + 1);
+    document.getElementById('dec-odds').value = dec.toFixed(2);
+    const n = Math.floor((dec - 1) * 4);
+    document.getElementById('frac-odds').value = n + '/4';
+  }
+
+  const impl = dec > 0 ? (1 / dec * 100).toFixed(2) + '%' : '—';
+  document.getElementById('impl-prob').textContent = impl;
+  // BUG: true-prob is same as impl-prob (no vig removed)
+  document.getElementById('true-prob').textContent = impl;
+  // BUG: vig always 0
+  document.getElementById('vig-pct').textContent = '0%';
+}
+
+function probToOdds() {
+  const p = parseFloat(document.getElementById('prob-input').value);
+  if (!p || p <= 0 || p >= 100) { showNotif('Enter probability between 1-99', 'error'); return; }
+  const dec = (100 / p).toFixed(2);
+  // BUG: fractional simplification not done (always shows /100)
+  const n = Math.round(100 - p);
+  document.getElementById('p2d').textContent = dec;
+  document.getElementById('p2f').textContent = n + '/100';
+  document.getElementById('p2a').textContent = p >= 50 ? '-' + Math.round(p / (1 - p/100)) : '+' + Math.round((100 / p - 1) * 100);
+}
+
+// ============================================
+// QUICK BET
+// BUG: Each Way returns are calculated with wrong place fraction (1/4 instead of 1/5)
+// BUG: Net Return shows Total Return (stake not subtracted)
+// ============================================
+function calcQuickBet() {
+  const stake = parseFloat(document.getElementById('qb-stake').value) || 0;
+  const oddsRaw = document.getElementById('qb-odds').value;
+  const fmt = document.getElementById('qb-format').value;
+  const type = document.getElementById('qb-type').value;
+
+  let dec = 0;
+  if (fmt === 'decimal') dec = parseFloat(oddsRaw) || 0;
+  else if (fmt === 'fractional') {
+    const p = oddsRaw.split('/');
+    dec = p.length === 2 ? parseInt(p[0]) / parseInt(p[1]) + 1 : 0;
+  } else {
+    const a = parseFloat(oddsRaw) || 0;
+    dec = a > 0 ? a / 100 + 1 : 100 / Math.abs(a) + 1;
+  }
+
+  let profit = 0, totalReturn = 0;
+  if (type === 'win') {
+    profit = stake * (dec - 1);
+    totalReturn = stake * dec;
+  } else {
+    // BUG: Each Way uses 1/4 odds (should be 1/5)
+    const placeOdds = 1 + (dec - 1) / 4;
+    profit = stake * (dec - 1) + stake * (placeOdds - 1);
+    totalReturn = stake * dec + stake * placeOdds;
+  }
+
+  document.getElementById('qb-profit').textContent = '£' + profit.toFixed(2);
+  document.getElementById('qb-return').textContent = '£' + totalReturn.toFixed(2);
+  // BUG: net return = total return (stake not subtracted correctly)
+  document.getElementById('qb-net').textContent = '£' + totalReturn.toFixed(2);
+  // BUG: ROI calculated as profit/profit instead of profit/stake
+  const roi = stake > 0 ? (profit / profit * 100).toFixed(1) : 0;
+  document.getElementById('qb-roi').textContent = roi + '%';
+}
+
+function resetQB() {
+  document.getElementById('qb-stake').value = 10;
+  document.getElementById('qb-odds').value = '2.50';
+  // BUG: Reset doesn't clear result fields
+}
+
+function updateQBFormat() {
+  // BUG: Format change doesn't update the odds placeholder
+}
+
+// ============================================
+// MULTI BET
+// BUG: Double uses single formula
+// ============================================
+const betTypeInfo = {
+  single: 'Single bet: 1 selection, 1 bet',
+  double: 'Double: 2 selections, 1 bet (both must win)',
+  treble: 'Treble: 3 selections, 1 bet (all must win)',
+  trixie: 'Trixie: 3 selections, 4 bets (3 doubles + 1 treble)',
+  yankee: 'Yankee: 4 selections, 11 bets',
+  lucky15: 'Lucky 15: 4 selections, 15 bets',
+  lucky31: 'Lucky 31: 5 selections, 31 bets',
+  lucky63: 'Lucky 63: 6 selections, 63 bets',
+};
+function updateMultiBetInfo() {
+  const t = document.getElementById('mb-type').value;
+  document.getElementById('mb-info').textContent = betTypeInfo[t] || '';
+}
+
+function calcMultiBet() {
+  const odds1 = parseFloat(document.getElementById('s1-odds').value) || 2.5;
+  const stake = parseFloat(document.getElementById('s1-stake').value) || 10;
+  const type = document.getElementById('mb-type').value;
+
+  // BUG: All types use same formula (just multiply by stake, no per-bet calc for Trixie etc.)
+  const numBets = { single:1, double:1, treble:1, trixie:4, yankee:11, lucky15:15, lucky31:31, lucky63:63 }[type] || 1;
+  const totalStake = stake * numBets;
+  const totalReturn = totalStake * odds1; // BUG: ignores multiple selections
+  const profit = totalReturn - totalStake;
+
+  document.getElementById('mb-result').style.display = 'block';
+  document.getElementById('mb-total-stake').textContent = '£' + totalStake.toFixed(2);
+  document.getElementById('mb-total-return').textContent = '£' + totalReturn.toFixed(2);
+  document.getElementById('mb-total-profit').textContent = '£' + profit.toFixed(2);
+  // BUG: break even always 0 for multi bets
+  document.getElementById('mb-breakeven').textContent = type === 'single' ? (100 / odds1).toFixed(1) + '%' : '0%';
+}
+
+// ============================================
+// BET HISTORY
+// BUG: PnL shows NaN initially
+// BUG: ROI doesn't update
+// ============================================
+function addBetHistory() {
+  const event = document.getElementById('hist-event').value.trim();
+  const odds = parseFloat(document.getElementById('hist-odds').value) || 0;
+  const stake = parseFloat(document.getElementById('hist-stake').value) || 0;
+  const result = document.getElementById('hist-result').value;
+
+  if (!event) { showNotif('Please enter event name', 'error'); return; }
+  if (!odds || !stake) { showNotif('Please enter odds and stake', 'error'); return; }
+
+  const ret = result === 'win' ? (stake * odds).toFixed(2) : result === 'loss' ? '0.00' : '—';
+  betHistory.push({ event, odds, stake, ret, result });
+  renderHistory();
+  // BUG: Fields not cleared after adding
+}
+
+function renderHistory() {
+  const tbody = document.getElementById('history-tbody');
+  if (betHistory.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:var(--muted); padding:2rem 0">No bets added yet</td></tr>';
+    return;
+  }
+  tbody.innerHTML = betHistory.map(b => `
+    <tr>
+      <td>${b.event}</td>
+      <td>${b.odds}</td>
+      <td>£${b.stake}</td>
+      <td>£${b.ret}</td>
+      <td>${b.result === 'win' ? '<span class="win-tag">Win</span>' : b.result === 'loss' ? '<span class="loss-tag">Loss</span>' : '<span class="pending-tag">Pending</span>'}</td>
+    </tr>`).join('');
+
+  const wins = betHistory.filter(b => b.result === 'win');
+  const losses = betHistory.filter(b => b.result === 'loss');
+  // BUG: PnL uses wrong formula (returns NaN when no wins)
+  const pnl = wins.reduce((s, b) => s + parseFloat(b.ret) - b.stake, NaN) - losses.reduce((s, b) => s + b.stake, 0);
+  document.getElementById('hist-pnl').textContent = '£' + (isNaN(pnl) ? 'NaN' : pnl.toFixed(2));
+  document.getElementById('hist-winrate').textContent = ((wins.length / betHistory.length) * 100).toFixed(0) + '%';
+  // BUG: ROI not updated (stays at 0%)
+}
+
+function sortHistory(col) {
+  // BUG: Sort is not implemented, just shows notification
+  showNotif('Sorting by ' + col + ' (not implemented)', 'info');
+}
+
+// ============================================
+// KELLY
+// BUG: EV uses wrong formula (multiplies instead of subtracts)
+// ============================================
+function calcKelly() {
+  const bankroll = parseFloat(document.getElementById('kel-bankroll').value) || 1000;
+  const odds = parseFloat(document.getElementById('kel-odds').value) || 2.5;
+  const prob = parseFloat(document.getElementById('kel-prob').value) / 100 || 0.55;
+  const fraction = parseFloat(document.getElementById('kel-fraction').value) || 0.5;
+
+  const b = odds - 1; // net odds
+  const q = 1 - prob;
+  const kelly = (b * prob - q) / b;
+  const fractKelly = kelly * fraction;
+  const betAmt = bankroll * fractKelly;
+
+  // BUG: EV = prob * odds (should be prob * odds - (1-prob) * stake)
+  const ev = prob * odds;
+  const edge = (prob * odds - 1) * 100;
+  const breakEven = (1 / odds * 100).toFixed(2);
+
+  document.getElementById('kelly-result').style.display = 'block';
+  document.getElementById('kelly-pct').textContent = (fractKelly * 100).toFixed(2) + '%';
+  document.getElementById('kelly-bet').textContent = '£' + Math.max(0, betAmt).toFixed(2);
+  document.getElementById('kelly-ev').textContent = ev.toFixed(4); // BUG: shows raw EV not per £
+  document.getElementById('kelly-edge').textContent = edge.toFixed(2) + '%';
+  document.getElementById('kelly-breakeven').textContent = breakEven + '%';
+}
+
+// ============================================
+// RISK OF RUIN
+// BUG: Always shows 0% regardless of inputs
+// ============================================
+function calcRoR() {
+  document.getElementById('ror-result').style.display = 'block';
+  // BUG: hardcoded 0%
+  document.getElementById('ror-pct').textContent = '0%';
+  document.getElementById('ror-lifetime').textContent = '∞';
+  document.getElementById('ror-optimal').textContent = '—';
+}
+
+// ============================================
+// PARLAY
+// BUG: Implied Probability = combinedOdds / 100 (wrong, should be 1/combinedOdds)
+// BUG: Clear doesn't reset combinedOdds
+// ============================================
+let parlayOdds = [];
+function addParlay() {
+  const name = document.getElementById('par-name').value.trim() || ('Selection ' + (parlayOdds.length + 1));
+  const odds = parseFloat(document.getElementById('par-odds').value) || 0;
+  if (!odds || odds < 1) { showNotif('Enter valid odds (≥1)', 'error'); return; }
+  // BUG: allows duplicates
+  parlayOdds.push({ name, odds });
+  renderParlay();
+  document.getElementById('par-name').value = '';
+  document.getElementById('par-odds').value = '';
+}
+function renderParlay() {
+  const list = document.getElementById('parlay-list');
+  list.innerHTML = parlayOdds.map((s, i) => `
+    <div class="parlay-item">
+      <span style="font-weight:500; font-size:0.9rem">${s.name}</span>
+      <span style="color:var(--gold); margin-left:auto; margin-right:8px">${s.odds}</span>
+      <button class="remove-btn" onclick="removeParlay(${i})">✕</button>
+    </div>`).join('');
+}
+function removeParlay(i) {
+  parlayOdds.splice(i, 1);
+  renderParlay();
+}
+function clearParlay() {
+  // BUG: doesn't reset parlayOdds to []
+  parlayOdds = [];
+  renderParlay();
+  document.getElementById('par-result').style.display = 'none';
+  // BUG: par-combo still shows old combined odds in result box
+}
+function calcParlay() {
+  if (parlayOdds.length < 2) { showNotif('Add at least 2 selections', 'error'); return; }
+  const stake = parseFloat(document.getElementById('par-stake').value) || 10;
+  const combo = parlayOdds.reduce((acc, s) => acc * s.odds, 1);
+  const ret = combo * stake;
+  const profit = ret - stake;
+  // BUG: implied prob = combo / 100 (wrong)
+  const impl = (combo / 100).toFixed(4);
+  document.getElementById('par-result').style.display = 'block';
+  document.getElementById('par-legs').textContent = parlayOdds.length;
+  document.getElementById('par-combo').textContent = combo.toFixed(2);
+  document.getElementById('par-return').textContent = '£' + ret.toFixed(2);
+  document.getElementById('par-profit').textContent = '£' + profit.toFixed(2);
+  document.getElementById('par-impl').textContent = impl;
+
+  // Comparison vs singles
+  const singlesTotal = parlayOdds.reduce((s, sel) => s + stake * sel.odds, 0);
+  document.getElementById('par-compare').innerHTML = `
+    <div class="result-row"><span class="lbl">Parlay Return</span><span class="val pos">£${ret.toFixed(2)}</span></div>
+    <div class="result-row"><span class="lbl">Singles Total Return</span><span class="val pos">£${singlesTotal.toFixed(2)}</span></div>
+    <div class="result-row"><span class="lbl">Parlay Advantage</span><span class="val ${ret > singlesTotal ? 'pos' : 'neg'}">£${(ret - singlesTotal).toFixed(2)}</span></div>
+    <p style="font-size:0.78rem; color:var(--muted); margin-top:8px">* Singles calculation assumes all selections win</p>
+  `;
+}
+
+// ============================================
+// ARBITRAGE
+// BUG: Always shows "opportunity found" even with no arb
+// ============================================
+function calcArb() {
+  const o1 = parseFloat(document.getElementById('arb1').value) || 2.10;
+  const o2 = parseFloat(document.getElementById('arb2').value) || 2.05;
+  const total = parseFloat(document.getElementById('arb-stake').value) || 100;
+  const arb = (1/o1 + 1/o2);
+  // BUG: Always shows positive profit (wrong sign)
+  const s1 = (total / o1 / arb).toFixed(2);
+  const s2 = (total / o2 / arb).toFixed(2);
+  const profit = (total / arb - total).toFixed(2);
+  const pct = ((1 - arb) * 100).toFixed(2);
+  document.getElementById('arb-result').style.display = 'block';
+  document.getElementById('arb-s1').textContent = '£' + s1;
+  document.getElementById('arb-s2').textContent = '£' + s2;
+  // BUG: shows absolute value so always positive
+  document.getElementById('arb-profit').textContent = '£' + Math.abs(profit);
+  document.getElementById('arb-pct').textContent = Math.abs(pct) + '%';
+  // BUG: Always says "opportunity found"
+  showNotif('✅ Arbitrage opportunity found!', 'success');
+}
+
+// ============================================
+// DUTCHING
+// BUG: Guaranteed Profit = same as Return
+// BUG: accepts zero odds
+// ============================================
+function calcDutching() {
+  const budget = parseFloat(document.getElementById('dut-budget').value) || 100;
+  const o1 = parseFloat(document.getElementById('ds1-odds').value) || 3;
+  const o2 = parseFloat(document.getElementById('ds2-odds').value) || 4.5;
+  const o3 = parseFloat(document.getElementById('ds3-odds').value) || 6;
+  // BUG: zero odds not validated
+  const total_inv = 1/o1 + 1/o2 + 1/o3;
+  const s1 = (budget * (1/o1) / total_inv).toFixed(2);
+  const s2 = (budget * (1/o2) / total_inv).toFixed(2);
+  const s3 = (budget * (1/o3) / total_inv).toFixed(2);
+  const ret = (parseFloat(s1) * o1).toFixed(2);
+  document.getElementById('dut-result').style.display = 'block';
+  document.getElementById('ds1-stake').textContent = '£' + s1;
+  document.getElementById('ds2-stake').textContent = '£' + s2;
+  document.getElementById('ds3-stake').textContent = '£' + s3;
+  document.getElementById('dut-return').textContent = '£' + ret;
+  // BUG: Profit = same as return (budget not subtracted)
+  document.getElementById('dut-profit').textContent = '£' + ret;
+}
+
+// ============================================
+// EXPECTED VALUE
+// BUG: EV per bet ignores stake
+// BUG: CI shows same as Total Expected Profit
+// ============================================
+function calcEV() {
+  const odds = parseFloat(document.getElementById('ev-odds').value) || 2.5;
+  const prob = parseFloat(document.getElementById('ev-prob').value) / 100 || 0.45;
+  const stake = parseFloat(document.getElementById('ev-stake').value) || 10;
+  const n = parseFloat(document.getElementById('ev-bets').value) || 100;
+  // BUG: EV per bet = (prob * odds) - ignores stake and loss component
+  const evPerBet = (prob * odds);
+  const evTotal = evPerBet * n;
+  const sd = Math.sqrt(n * prob * (1 - prob) * stake);
+  document.getElementById('ev-result').style.display = 'block';
+  document.getElementById('ev-per-bet').textContent = '£' + evPerBet.toFixed(4);
+  document.getElementById('ev-total').textContent = '£' + evTotal.toFixed(2);
+  document.getElementById('ev-sd').textContent = '£' + sd.toFixed(2);
+  // BUG: CI = same as evTotal (1.96*sd not applied)
+  document.getElementById('ev-ci').textContent = '£' + evTotal.toFixed(2) + ' ± £0';
+}
+
+// ============================================
+// REGISTER / LOGIN
+// BUG: TC checkbox not validated
+// BUG: Email accepts any string
+// BUG: DOB allows future dates
+// ============================================
+function submitRegister() {
+  let valid = true;
+  const name = document.getElementById('reg-name').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const pass = document.getElementById('reg-pass').value;
+  const dob = document.getElementById('reg-dob').value;
+
+  document.querySelectorAll('.error-msg').forEach(e => e.style.display = 'none');
+
+  if (name.length < 3) {
+    document.getElementById('err-name').style.display = 'block'; valid = false;
+  }
+  // BUG: email validation accepts anything with @ symbol only (no domain check)
+  if (!email.includes('@')) {
+    document.getElementById('err-email').style.display = 'block'; valid = false;
+  }
+  if (pass.length < 8) {
+    document.getElementById('err-pass').style.display = 'block'; valid = false;
+  }
+  // BUG: DOB validation doesn't actually check if user is 18+
+  if (!dob) {
+    document.getElementById('err-dob').style.display = 'block'; valid = false;
+  }
+  // BUG: T&C checkbox is NOT validated here
+
+  if (valid) {
+    document.getElementById('reg-success').style.display = 'block';
+    // BUG: form fields not cleared after success
+  }
+}
+
+function submitLogin() {
+  const email = document.getElementById('login-email').value;
+  const pass = document.getElementById('login-pass').value;
+  // BUG: any email/password combo works (no actual validation)
+  if (email && pass) {
+    showNotif('Welcome back! You are now signed in.', 'success');
+    closeModal('loginModal');
+  } else {
+    showNotif('Please fill in all fields', 'error');
+  }
+}
+
+// ============================================
+// WALLET
+// BUG: Deposit subtracts instead of adds
+// BUG: Withdrawal allows exceeding balance
+// ============================================
+let balance = 1250.00;
+function processDeposit() {
+  const amount = parseFloat(document.getElementById('dep-amount').value) || 0;
+  if (amount <= 0) { showNotif('Enter a valid deposit amount', 'error'); return; }
+  // BUG: subtracts instead of adds
+  balance -= amount;
+  document.getElementById('wallet-balance').textContent = '£' + balance.toFixed(2);
+  showNotif('Deposit of £' + amount.toFixed(2) + ' processed!', 'success');
+}
+function processWithdrawal() {
+  const amount = parseFloat(document.getElementById('wdl-amount').value) || 0;
+  if (amount <= 0) { showNotif('Enter a valid withdrawal amount', 'error'); return; }
+  // BUG: no balance check — can withdraw more than available
+  balance -= amount;
+  document.getElementById('wallet-balance').textContent = '£' + balance.toFixed(2);
+  showNotif('Withdrawal of £' + amount.toFixed(2) + ' requested!', 'info');
+}
+
+// ============================================
+// COUNTDOWN (BUG: counts UP not down)
+// ============================================
+setInterval(() => {
+  countSeconds++;
+  const h = String(Math.floor(countSeconds / 3600)).padStart(2, '0');
+  const m = String(Math.floor((countSeconds % 3600) / 60)).padStart(2, '0');
+  const s = String(countSeconds % 60).padStart(2, '0');
+  const el = document.getElementById('countdown');
+  if (el) el.textContent = h + ':' + m + ':' + s;
+}, 1000);
+
+// ============================================
+// INITIAL STATE
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+  updateMultiBetInfo();
+  // BUG: hist-pnl shows NaN on load
+  document.getElementById('hist-pnl').textContent = '£NaN';
+});
+</script>
+</body>
+</html>
